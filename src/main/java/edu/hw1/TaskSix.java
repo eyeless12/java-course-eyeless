@@ -1,22 +1,27 @@
 package edu.hw1;
 
-import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Arrays;
+
 public final class TaskSix {
+    public static final int CAPRECARS_NUMBER = 6174;
+    public static final int LEFT_BORDER = 1000;
+    public static final int RIGHT_BORDER = 9999;
+
     private TaskSix() {
         throw new IllegalStateException();
     }
 
     private static int getCaprecarsConversionCount(int n, int attempts) {
-        if (n == 6174) {
+        if (n == CAPRECARS_NUMBER) {
             return attempts;
         }
-        return getCaprecarsConversionCount(caprecarsMinus(n), ++attempts);
+        return getCaprecarsConversionCount(caprecarsMinus(n), attempts + 1);
     }
 
     public static int getCaprecarsConversionCount(int n) throws IllegalArgumentException {
-        if (n < 1000 || n > 9999) {
+        if (n < LEFT_BORDER || n > RIGHT_BORDER) {
             throw new IllegalArgumentException();
         }
         return getCaprecarsConversionCount(n, 0);

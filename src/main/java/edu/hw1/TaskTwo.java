@@ -1,6 +1,8 @@
 package edu.hw1;
 
 public final class TaskTwo {
+    private static final int TEN_RADIX = 10;
+
     private TaskTwo() {
         throw new IllegalStateException();
     }
@@ -10,11 +12,12 @@ public final class TaskTwo {
             throw new IllegalArgumentException();
         }
         int digitsCount = 0;
+        int remains = n;
         do {
-            n /= 10;
+            remains /= TEN_RADIX;
             digitsCount++;
         }
-        while (n != 0);
+        while (remains != 0);
         return digitsCount;
     }
 }

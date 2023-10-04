@@ -6,11 +6,12 @@ public final class TaskFive {
     }
 
     public static boolean isPalindromeDescendant(int number) {
-        while (String.valueOf(number).length() > 1) {
-            if (isPalindrome(number)) {
+        int newNumber = number;
+        while (String.valueOf(newNumber).length() > 1) {
+            if (isPalindrome(newNumber)) {
                 return true;
             }
-            number = getChild(number);
+            newNumber = getChild(number);
         }
         return false;
     }
@@ -32,7 +33,7 @@ public final class TaskFive {
         int length = numberString.length();
         for (int i = 0; i < length - 1; i += 2) {
             newNumberBuilder.append(Character.getNumericValue(numberString.charAt(i))
-                + Character.getNumericValue(numberString.charAt(i + 1)));
+                    + Character.getNumericValue(numberString.charAt(i + 1)));
         }
         if (length % 2 != 0) {
             newNumberBuilder.append(Character.getNumericValue(numberString.charAt(length - 1)));
