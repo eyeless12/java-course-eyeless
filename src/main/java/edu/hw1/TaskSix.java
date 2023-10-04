@@ -4,6 +4,9 @@ import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 
 public class TaskSix {
+    private TaskSix(){
+        throw new IllegalStateException();
+    }
     private static int getCaprecarsConversionCount(int n, int attempts) {
         if (n == 6174) {
             return attempts;

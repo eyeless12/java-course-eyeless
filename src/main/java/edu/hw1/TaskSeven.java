@@ -1,6 +1,9 @@
 package edu.hw1;
 
 public class TaskSeven {
+    private TaskSeven(){
+        throw new IllegalStateException();
+    }
     public static int rotateLeft(int n, int shift) throws IllegalArgumentException {
         if (n < 0 || shift < 0) {
             throw new IllegalArgumentException();
