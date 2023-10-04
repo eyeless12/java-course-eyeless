@@ -1,8 +1,8 @@
 package edu.hw1;
 
 public class TaskTwo {
-    public static int countDigits(int n) throws IllegalArgumentException{
-        if (n < 0){
+    public static int countDigits(int n) throws IllegalArgumentException {
+        if (n < 0) {
             throw new IllegalArgumentException();
         }
         int digitsCount = 0;

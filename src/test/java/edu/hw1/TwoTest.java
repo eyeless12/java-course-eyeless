@@ -24,6 +24,7 @@ public class TwoTest {
     @Test
     @DisplayName("Исключение при отрицательном аргументе")
     void testException(){
+
         assertThatThrownBy(() -> countDigits(-5)).isInstanceOf(IllegalArgumentException.class);
     }
 }

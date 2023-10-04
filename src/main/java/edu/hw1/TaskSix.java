@@ -1,23 +1,24 @@
 package edu.hw1;
 
-import org.jetbrains.annotations.NotNull;
 import java.util.Arrays;
+import org.jetbrains.annotations.NotNull;
 
 public class TaskSix {
     private static int getCaprecarsConversionCount(int n, int attempts) {
-        if (n == 6174){
+        if (n == 6174) {
             return attempts;
         }
         return getCaprecarsConversionCount(caprecarsMinus(n), ++attempts);
     }
 
-    public static int getCaprecarsConversionCount(int n) throws IllegalArgumentException{
-        if (n < 1000 || n > 9999)
+    public static int getCaprecarsConversionCount(int n) throws IllegalArgumentException {
+        if (n < 1000 || n > 9999) {
             throw new IllegalArgumentException();
+        }
         return getCaprecarsConversionCount(n, 0);
     }
 
-    private static int caprecarsMinus(int n){
+    private static int caprecarsMinus(int n) {
         char[] digits = sortDigits(n);
         int nSortedAscending = Integer.parseInt(new String(digits));
         reverseArray(digits);
@@ -25,7 +26,7 @@ public class TaskSix {
         return nSortedDescending - nSortedAscending;
     }
 
-    private static char @NotNull [] sortDigits(int n){
+    private static char @NotNull [] sortDigits(int n) {
         String numberStr = Integer.toString(n);
         char[] digits = numberStr.toCharArray();
         Arrays.sort(digits);

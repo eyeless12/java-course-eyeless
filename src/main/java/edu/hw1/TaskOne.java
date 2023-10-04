@@ -3,7 +3,7 @@ package edu.hw1;
 import java.util.Arrays;
 
 public class TaskOne {
-    public static int getVideoLengthInSeconds(String timecode){
+    public static int getVideoLengthInSeconds(String timecode) {
         int[] tokens = Arrays.stream(timecode.split(":")).mapToInt(Integer::valueOf).toArray();
         int minutes = tokens[0];
         int seconds = tokens[1];
