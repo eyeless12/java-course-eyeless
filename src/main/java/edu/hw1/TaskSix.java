@@ -1,8 +1,7 @@
 package edu.hw1;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.util.Arrays;
+import org.jetbrains.annotations.NotNull;
 
 public final class TaskSix {
     public static final int CAPRECARS_NUMBER = 6174;
