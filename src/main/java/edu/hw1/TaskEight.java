@@ -1,9 +1,10 @@
 package edu.hw1;
 
-public class TaskEight {
-    private TaskEight(){
+public final class TaskEight {
+    private TaskEight() {
         throw new IllegalStateException();
     }
+
     private static final int[][] possibleDirections = {
         {-2, -1},
         {-2, 1},

@@ -1,9 +1,10 @@
 package edu.hw1;
 
-public class TaskThree {
-    private TaskThree(){
+public final class TaskThree {
+    private TaskThree() {
         throw new IllegalStateException();
     }
+
     public static boolean isArraysCanBeNested(int[] first, int[] second) throws IllegalArgumentException {
         if (first.length == 0 || second.length == 0) {
             throw new IllegalArgumentException();

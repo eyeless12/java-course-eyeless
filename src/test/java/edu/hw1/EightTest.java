@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import static edu.hw1.TaskEight.knightBoardCapture;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class EightTest {
+public final class EightTest {
 
     @Test
     @DisplayName("Обычный тест")

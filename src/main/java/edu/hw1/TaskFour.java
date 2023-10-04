@@ -2,10 +2,11 @@ package edu.hw1;
 
 import org.jetbrains.annotations.NotNull;
 
-public class TaskFour {
-    private TaskFour(){
+public final class TaskFour {
+    private TaskFour() {
         throw new IllegalStateException();
     }
+
     public static String fixString(@NotNull String source) {
         StringBuilder stringBuilder = new StringBuilder();
         int length = source.length();

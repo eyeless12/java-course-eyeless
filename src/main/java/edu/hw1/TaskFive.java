@@ -1,9 +1,10 @@
 package edu.hw1;
 
-public class TaskFive {
-    private TaskFive(){
+public final class TaskFive {
+    private TaskFive() {
         throw new IllegalStateException();
     }
+
     public static boolean isPalindromeDescendant(int number) {
         while (String.valueOf(number).length() > 1) {
             if (isPalindrome(number)) {
