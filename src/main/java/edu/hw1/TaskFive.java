@@ -11,7 +11,7 @@ public final class TaskFive {
             if (isPalindrome(newNumber)) {
                 return true;
             }
-            newNumber = getChild(number);
+            newNumber = getChild(newNumber);
         }
         return false;
     }
