@@ -11,9 +11,10 @@ public final class TaskSeven {
         }
         char[] nBinary = Integer.toBinaryString(n).toCharArray();
         int arrayLength = nBinary.length;
+        int shiftLengthMod = shift % arrayLength;
         char[] result = new char[arrayLength];
         for (int i = 0; i < arrayLength; i++) {
-            int indexToMove = (i - shift) % arrayLength;
+            int indexToMove = (i - shiftLengthMod) % arrayLength;
             if (indexToMove < 0) {
                 indexToMove += arrayLength;
             }

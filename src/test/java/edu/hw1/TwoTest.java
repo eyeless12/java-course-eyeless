@@ -20,11 +20,4 @@ public class TwoTest {
     void testOneDigit(){
         assertThat(countDigits(0)).isEqualTo(1);
     }
-
-    @Test
-    @DisplayName("Исключение при отрицательном аргументе")
-    void testException(){
-
-        assertThatThrownBy(() -> countDigits(-5)).isInstanceOf(IllegalArgumentException.class);
-    }
 }

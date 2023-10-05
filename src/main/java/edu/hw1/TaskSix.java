@@ -1,6 +1,8 @@
 package edu.hw1;
 
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 import org.jetbrains.annotations.NotNull;
 
 public final class TaskSix {
@@ -20,7 +22,12 @@ public final class TaskSix {
     }
 
     public static int getCaprecarsConversionCount(int n) throws IllegalArgumentException {
-        if (n < LEFT_BORDER || n > RIGHT_BORDER) {
+        char[] nCharArray = String.valueOf(n).toCharArray();
+        Set<Character> nSet = new HashSet<Character>();
+        for (char i : nCharArray) {
+            nSet.add(i);
+        }
+        if (n < LEFT_BORDER || n > RIGHT_BORDER || nSet.size() == 1) {
             throw new IllegalArgumentException();
         }
         return getCaprecarsConversionCount(n, 0);

@@ -33,4 +33,11 @@ public class OneTest {
         String input = "420:-5";
         assertThat(getVideoLengthInSeconds(input)).isEqualTo(-1);
     }
+
+    @Test
+    @DisplayName("Символы в строке")
+    void testSymbols(){
+        String input = "4o:3";
+        assertThat(getVideoLengthInSeconds(input)).isEqualTo(-1);
+    }
 }

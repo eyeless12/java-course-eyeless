@@ -5,9 +5,9 @@ public final class TaskFive {
         throw new IllegalStateException();
     }
 
-    public static boolean isPalindromeDescendant(int number) {
-        int newNumber = number;
-        while (String.valueOf(newNumber).length() > 1) {
+    public static boolean isPalindromeDescendant(String number) {
+        String newNumber = number;
+        while (newNumber.length() > 1) {
             if (isPalindrome(newNumber)) {
                 return true;
             }
@@ -16,28 +16,27 @@ public final class TaskFive {
         return false;
     }
 
-    private static boolean isPalindrome(int number) {
-        String numberString = String.valueOf(number);
-        int numberStringLength = numberString.length();
+    private static boolean isPalindrome(String number) {
+        int numberStringLength = number.length();
         for (var i = 0; i < numberStringLength / 2; i++) {
-            if (numberString.charAt(i) != numberString.charAt(numberStringLength - i - 1)) {
+            if (number.charAt(i) != number.charAt(numberStringLength - i - 1)) {
                 return false;
             }
         }
         return true;
     }
 
-    private static int getChild(int number) {
-        String numberString = String.valueOf(number);
+    private static String getChild(String number) {
         StringBuilder newNumberBuilder = new StringBuilder();
-        int length = numberString.length();
+        int length = number.length();
         for (int i = 0; i < length - 1; i += 2) {
-            newNumberBuilder.append(Character.getNumericValue(numberString.charAt(i))
-                    + Character.getNumericValue(numberString.charAt(i + 1)));
+            int first = Character.getNumericValue(number.charAt(i));
+            int second = Character.getNumericValue(number.charAt(i + 1));
+            newNumberBuilder.append(first + second);
         }
         if (length % 2 != 0) {
-            newNumberBuilder.append(Character.getNumericValue(numberString.charAt(length - 1)));
+            newNumberBuilder.append(Character.getNumericValue(number.charAt(length - 1)));
         }
-        return Integer.parseInt(newNumberBuilder.toString());
+        return newNumberBuilder.toString();
     }
 }

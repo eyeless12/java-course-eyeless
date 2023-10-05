@@ -7,10 +7,7 @@ public final class TaskTwo {
         throw new IllegalStateException();
     }
 
-    public static int countDigits(int n) throws IllegalArgumentException {
-        if (n < 0) {
-            throw new IllegalArgumentException();
-        }
+    public static int countDigits(int n) {
         int digitsCount = 0;
         int remains = n;
         do {

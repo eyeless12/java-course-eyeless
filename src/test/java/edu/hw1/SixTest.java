@@ -37,5 +37,6 @@ public class SixTest {
     void testExceptions(){
         assertThatThrownBy(() -> getCaprecarsConversionCount(5)).isInstanceOf(IllegalArgumentException.class);
         assertThatThrownBy(() -> getCaprecarsConversionCount(12345)).isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(() -> getCaprecarsConversionCount(1111)).isInstanceOf(IllegalArgumentException.class);
     }
 }
