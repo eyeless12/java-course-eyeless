@@ -1,14 +1,13 @@
 package edu.hw1;
 
 import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 import org.jetbrains.annotations.NotNull;
 
 public final class TaskSix {
     public static final int CAPRECARS_NUMBER = 6174;
     public static final int LEFT_BORDER = 1000;
     public static final int RIGHT_BORDER = 9999;
+    public static final int ALL_DIGITS_SAME_NUMBER = 1111;
 
     private TaskSix() {
         throw new IllegalStateException();
@@ -22,12 +21,7 @@ public final class TaskSix {
     }
 
     public static int getCaprecarsConversionCount(int n) throws IllegalArgumentException {
-        char[] nCharArray = String.valueOf(n).toCharArray();
-        Set<Character> nSet = new HashSet<Character>();
-        for (char i : nCharArray) {
-            nSet.add(i);
-        }
-        if (n < LEFT_BORDER || n > RIGHT_BORDER || nSet.size() == 1) {
+        if (n < LEFT_BORDER || n > RIGHT_BORDER || n % ALL_DIGITS_SAME_NUMBER == 0) {
             throw new IllegalArgumentException();
         }
         return getCaprecarsConversionCount(n, 0);
