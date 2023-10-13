@@ -1,10 +1,12 @@
 package edu.pr1.results;
 
-import org.jetbrains.annotations.NotNull;
 
 sealed public interface GuessResult {
+
     char[] state();
+
     int attempt();
+
     int maxAttempts();
 
     String message();
@@ -30,7 +32,9 @@ sealed public interface GuessResult {
             return "You lost!";
         }
     }
+
     record Win(char[] state, int attempt, int maxAttempts) implements GuessResult {
+
         @Override
         public char[] state() {
             return state;
@@ -51,7 +55,9 @@ sealed public interface GuessResult {
             return "You win!";
         }
     }
+
     record SuccessfulGuess(char[] state, int attempt, int maxAttempts) implements GuessResult {
+
         @Override
         public char[] state() {
             return state;
@@ -72,6 +78,7 @@ sealed public interface GuessResult {
             return "Hit!";
         }
     }
+
     record FailedGuess(char[] state, int attempt, int maxAttempts) implements GuessResult {
         @Override
         public char[] state() {

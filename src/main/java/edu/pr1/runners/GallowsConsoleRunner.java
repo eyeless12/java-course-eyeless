@@ -4,34 +4,39 @@ import edu.pr1.GallowsGameSession;
 import edu.pr1.results.GuessResult;
 import edu.pr1.word_generators.RandomWordGenerator;
 import java.util.Scanner;
+import java.util.logging.Logger;
 
 public class GallowsConsoleRunner implements GallowsRunner {
     private final GallowsGameSession gameSession;
+    private static final int DEFAULT_GALLOWS_ATTEMPTS = 10;
+    private static Logger logger = Logger.getLogger(GallowsConsoleRunner.class.getName());
+
     public GallowsConsoleRunner() {
-        gameSession = new GallowsGameSession(new RandomWordGenerator(), 10);
+        gameSession = new GallowsGameSession(new RandomWordGenerator(), DEFAULT_GALLOWS_ATTEMPTS);
     }
+
     @Override
     public void run() {
-        System.out.println("Welcome to the Gallows game!");
+        logger.info("Welcome to the Gallows game!");
         Scanner sc = new Scanner(System.in);
         GuessResult result = null;
         while (!(result instanceof GuessResult.Defeat || result instanceof GuessResult.Win)) {
             printState();
-            System.out.print("Your guess: ");
+            logger.info("Your guess: ");
             String input = sc.next();
             if (input.length() > 1) {
-                System.out.println("Wrong input!");
+                logger.info("Wrong input!");
                 continue;
             }
             char letter = input.charAt(0);
             result = guess(letter);
-            System.out.println(result.message());
+            logger.info(result.message());
         }
     }
 
     @Override
     public void printState() {
-        System.out.println(gameSession.getCurrentStateMessage());
+        logger.info(gameSession.getCurrentStateMessage());
     }
 
     @Override

@@ -1,18 +1,18 @@
 package edu.pr1;
 
+import edu.pr1.results.GuessResult;
 import edu.pr1.word_generators.IWordGenerator;
-import edu.pr1.results.*;
-import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
+import org.jetbrains.annotations.NotNull;
 
 public class GallowsGameSession {
     private final String hiddenWord;
     private final char[] userGuess;
     private final HashSet<Character> guessed;
-    private int attempts = 0;
     private final int maxAttempts;
+    private int attempts = 0;
 
     public GallowsGameSession(@NotNull IWordGenerator wordGenerator, int maxAttempts) {
         this.maxAttempts = maxAttempts;
