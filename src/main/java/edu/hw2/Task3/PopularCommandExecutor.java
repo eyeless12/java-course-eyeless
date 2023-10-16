@@ -1,6 +1,6 @@
-package edu.hw2.TaskThree;
+package edu.hw2.Task3;
 
-import edu.hw2.TaskThree.Managers.ConnectionManager;
+import edu.hw2.Task3.Managers.ConnectionManager;
 
 public final class PopularCommandExecutor {
     private final ConnectionManager manager;
@@ -26,7 +26,8 @@ public final class PopularCommandExecutor {
                 if (attempts > maxAttempts) {
                     throw new ConnectionException(e);
                 }
-            } catch (Exception ignored) { }
+            } catch (Exception ignored) {
+            }
         }
     }
 }

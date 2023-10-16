@@ -1,6 +1,6 @@
-package edu.hw2.TaskThree.Connections;
+package edu.hw2.Task3.Connections;
 
-import edu.hw2.TaskThree.ConnectionException;
+import edu.hw2.Task3.ConnectionException;
 
 public class StableConnection implements Connection {
     @Override

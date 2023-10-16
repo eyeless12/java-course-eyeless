@@ -1,19 +1,19 @@
-package edu.hw2.TaskThree.Managers;
+package edu.hw2.Task3.Managers;
 
-import edu.hw2.TaskThree.Connections.Connection;
-import edu.hw2.TaskThree.Connections.FaultyConnection;
-import edu.hw2.TaskThree.Connections.StableConnection;
+import edu.hw2.Task3.Connections.Connection;
+import edu.hw2.Task3.Connections.FaultyConnection;
+import edu.hw2.Task3.Connections.StableConnection;
 import java.util.Random;
 
 public class DefaultConnectionManager implements ConnectionManager {
+    private static final int RND_BOUND = 10;
+    private static final int RND_UPPER_VALUE = 3;
+    private final Random random;
+
     public DefaultConnectionManager() {
 
         this.random = new Random();
     }
-
-    private final Random random;
-    private static final int RND_BOUND = 10;
-    private static final int RND_UPPER_VALUE = 3;
 
     @Override
     public Connection getConnection() {

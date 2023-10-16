@@ -1,17 +1,18 @@
-package edu.hw2.TaskThree.Connections;
+package edu.hw2.Task3.Connections;
 
-import edu.hw2.TaskThree.ConnectionException;
+import edu.hw2.Task3.ConnectionException;
 import java.util.Random;
 
 public class FaultyConnection implements Connection {
+    private static final int RND_BOUND = 10;
+    private static final int RND_UPPER_VALUE = 5;
+
+    private final Random random;
+
     public FaultyConnection() {
 
         this.random = new Random();
     }
-
-    private final Random random;
-    private static final int RND_BOUND = 10;
-    private static final int RND_UPPER_VALUE = 5;
 
     @Override
     public void execute(String command) throws ConnectionException {

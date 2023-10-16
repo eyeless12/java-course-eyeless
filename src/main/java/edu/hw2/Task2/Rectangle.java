@@ -1,4 +1,4 @@
-package edu.hw2.TaskTwo;
+package edu.hw2.Task2;
 
 public class Rectangle {
     public Rectangle(int width, int height) {
