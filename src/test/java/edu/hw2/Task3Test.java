@@ -15,16 +15,11 @@ public class Task3Test {
     @Test
     void TestFaultyConnection() {
         var faultyConnection = new FaultyConnection();
-        ConnectionException exceptionThrowed;
-        while (true) {
-            try {
+        assertThrows(ConnectionException.class, () -> {
+            while (true) {
                 faultyConnection.execute("1");
-            } catch (ConnectionException e) {
-                exceptionThrowed = e;
-                break;
             }
-        }
-        assertThat(exceptionThrowed).isInstanceOf(ConnectionException.class);
+        });
     }
 
     @Test
@@ -54,14 +49,10 @@ public class Task3Test {
     @Test
     void TestExecutorFaultyConnection() {
         var executorFaulty = new PopularCommandExecutor(new FaultyConnectionManager(), 1);
-        boolean conncetionExceptionIsThrown = false;
-        try {
-            for (int i = 0; i < 10; i++) {
+        assertThrows(ConnectionException.class, () -> {
+            while (true) {
                 executorFaulty.updatePackages();
             }
-        } catch (ConnectionException e) {
-            conncetionExceptionIsThrown = true;
-        }
-        assertThat(conncetionExceptionIsThrown).isEqualTo(true);
+        });
     }
 }

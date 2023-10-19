@@ -8,16 +8,9 @@ public final class CallingHelper {
     public static CallingInfo callingInfo() {
         String className;
         String methodName;
-        try {
-            //Хоть и в задании было так, но колхоз какой то....
-            throw new Exception();
-        } catch (Exception e) {
-            var previousContext = e.getStackTrace()[1];
-            className = previousContext.getClassName();
-            methodName = previousContext.getMethodName();
-        }
+        var previousContext = new Throwable().getStackTrace()[1];
 
-        return new CallingInfo(className, methodName);
+        return new CallingInfo(previousContext.getClassName(), previousContext.getMethodName());
     }
 
     public record CallingInfo(String className, String methodName) {
