@@ -9,7 +9,7 @@ import java.util.logging.Logger;
 public class GallowsConsoleRunner implements GallowsRunner {
     private final GallowsGameSession gameSession;
     private static final int DEFAULT_GALLOWS_ATTEMPTS = 10;
-    private static final Logger logger = Logger.getLogger(GallowsConsoleRunner.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(GallowsConsoleRunner.class.getName());
 
     public GallowsConsoleRunner() {
         gameSession = new GallowsGameSession(new RandomWordGenerator(), DEFAULT_GALLOWS_ATTEMPTS);
@@ -17,26 +17,26 @@ public class GallowsConsoleRunner implements GallowsRunner {
 
     @Override
     public void run() {
-        logger.info("Welcome to the Gallows game!");
+        LOGGER.info("Welcome to the Gallows game!");
         Scanner sc = new Scanner(System.in);
         GuessResult result = null;
         while (!(result instanceof GuessResult.Defeat || result instanceof GuessResult.Win)) {
             printState();
-            logger.info("Your guess: ");
+            LOGGER.info("Your guess: ");
             String input = sc.next();
             if (input.length() > 1) {
-                logger.info("Wrong input!");
+                LOGGER.info("Wrong input!");
                 continue;
             }
             char letter = input.charAt(0);
             result = guess(letter);
-            logger.info(result.message());
+            LOGGER.info(result.message());
         }
     }
 
     @Override
     public void printState() {
-        logger.info(gameSession.getCurrentStateMessage());
+        LOGGER.info(gameSession.getCurrentStateMessage());
     }
 
     @Override
