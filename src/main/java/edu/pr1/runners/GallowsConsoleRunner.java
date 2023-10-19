@@ -9,7 +9,7 @@ import java.util.logging.Logger;
 public class GallowsConsoleRunner implements GallowsRunner {
     private final GallowsGameSession gameSession;
     private static final int DEFAULT_GALLOWS_ATTEMPTS = 10;
-    private static Logger logger = Logger.getLogger(GallowsConsoleRunner.class.getName());
+    private static final Logger logger = Logger.getLogger(GallowsConsoleRunner.class.getName());
 
     public GallowsConsoleRunner() {
         gameSession = new GallowsGameSession(new RandomWordGenerator(), DEFAULT_GALLOWS_ATTEMPTS);
