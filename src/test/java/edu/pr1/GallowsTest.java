@@ -1,7 +1,6 @@
 package edu.pr1;
 
 import edu.pr1.results.GuessResult;
-import edu.pr1.word_generators.TestWordGenerator;
 import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 

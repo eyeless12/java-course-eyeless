@@ -17,7 +17,7 @@ public class GallowsConsoleRunner implements GallowsRunner {
 
     @Override
     public void run() {
-        LOGGER.info("Welcome to the Gallows game!");
+        LOGGER.info("Welcome to the Gallows game! Enter '/q' for exit");
         Scanner sc = new Scanner(System.in);
         GuessResult result = null;
         while (!(result instanceof GuessResult.Defeat || result instanceof GuessResult.Win)) {
@@ -25,6 +25,10 @@ public class GallowsConsoleRunner implements GallowsRunner {
             LOGGER.info("Your guess: ");
             String input = sc.next();
             if (input.length() > 1) {
+                if (input.equals("/q")) {
+                    LOGGER.info("Defeat!");
+                    break;
+                }
                 LOGGER.info("Wrong input!");
                 continue;
             }
@@ -42,5 +46,10 @@ public class GallowsConsoleRunner implements GallowsRunner {
     @Override
     public GuessResult guess(char letter) {
         return gameSession.guess(letter);
+    }
+
+    public static void main(String[] args) {
+        var runner = new GallowsConsoleRunner();
+        runner.run();
     }
 }
