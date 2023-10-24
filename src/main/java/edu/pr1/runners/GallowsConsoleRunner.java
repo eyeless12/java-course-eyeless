@@ -47,9 +47,4 @@ public class GallowsConsoleRunner implements GallowsRunner {
     public GuessResult guess(char letter) {
         return gameSession.guess(letter);
     }
-
-    public static void main(String[] args) {
-        var runner = new GallowsConsoleRunner();
-        runner.run();
-    }
 }
