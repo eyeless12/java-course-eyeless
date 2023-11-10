@@ -9,39 +9,43 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 
 public class DiskMap {
-    private final String directory = System.getProperty("user.dir") + "/files";
-    private final Path path;
+    private final Path directory;
 
-    public DiskMap() {
-        path = Paths.get(directory);
+    public DiskMap(String mapDir) {
+        directory = Paths.get(mapDir);
         try {
-            Files.createDirectory(path);
+            Files.createDirectory(directory);
         } catch (IOException ignored) {
         }
     }
 
-    public String get(String key) throws IOException {
+    public String get(String key) {
         Path dir = Path.of(directory + "/" + key);
-        return Files.readAllLines(dir).get(0).split(":")[1];
+        try {
+            return Files.readAllLines(dir).get(0).split(":")[1];
+        } catch (IOException ignored) { }
+        return null;
     }
 
-    public void set(String key, String value) throws IOException {
+    public void set(String key, String value) {
         Path dir = Path.of(directory + "/" + key);
         var file = new File(directory + "/" + key);
-        if (file.exists()) {
-            var data = Files.readAllLines(dir).get(0).split(":");
-            data[1] = value;
-        } else {
-            Files.createFile(dir);
-        }
-        Files.writeString(dir, key + ":" + value);
+        try {
+            if (file.exists()) {
+                var data = Files.readAllLines(dir).get(0).split(":");
+                data[1] = value;
+            } else {
+                Files.createFile(dir);
+            }
+            Files.writeString(dir, key + ":" + value);
+        } catch (IOException ignored) { }
+
     }
 
     public void saveContext(String path) throws IOException {
-        Path dir = Path.of(directory);
         var data = new ArrayList<String>();
 
-        try (DirectoryStream<Path> stream = Files.newDirectoryStream(dir)) {
+        try (DirectoryStream<Path> stream = Files.newDirectoryStream(directory)) {
             for (Path file : stream) {
                 data.add(Files.readAllLines(file).get(0));
             }
