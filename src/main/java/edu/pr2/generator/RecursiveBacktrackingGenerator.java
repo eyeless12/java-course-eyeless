@@ -17,6 +17,9 @@ public class RecursiveBacktrackingGenerator implements Generator {
     private final static int STEP = 2;
 
     public RecursiveBacktrackingGenerator(int width, int height) {
+        if (width <= 0 || height <= 0) {
+            throw new IllegalArgumentException();
+        }
         this.width = width;
         this.height = height;
         this.maze = new char[height + 1][width + 1];
@@ -70,16 +73,10 @@ public class RecursiveBacktrackingGenerator implements Generator {
         }
     }
 
-    private void setEntranceAndExit() {
-        maze[0][1] = ' ';
-        maze[height][width - 1] = ' ';
-    }
-
     @Override
     public Maze generate() {
         initializeMaze();
         generateMaze(1, 1);
-        //setEntranceAndExit();
         var cellArray = new Cell[height + 1][width + 1];
         for (int i = 0; i < maze.length; i++) {
             for (int j = 0; j < maze[0].length; j++) {

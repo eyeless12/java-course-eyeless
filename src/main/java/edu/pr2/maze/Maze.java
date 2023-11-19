@@ -2,6 +2,7 @@ package edu.pr2.maze;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public final class Maze {
     private final int height;
@@ -9,6 +10,9 @@ public final class Maze {
     private final Cell[][] grid;
 
     public Maze(int height, int width, Cell[][] grid) {
+        if (height <= 0 || width <= 0 || grid == null) {
+            throw new IllegalArgumentException();
+        }
         this.height = height;
         this.width = width;
         this.grid = grid;
@@ -18,32 +22,32 @@ public final class Maze {
         return grid[i][j];
     }
 
-    public Cell left(Cell cell) {
+    public Optional<Cell> left(Cell cell) {
         if (cell.col() > 0) {
-            return cellAt(cell.row(), cell.col() - 1);
+            return Optional.of(cellAt(cell.row(), cell.col() - 1));
         }
-        return null;
+        return Optional.empty();
     }
 
-    public Cell right(Cell cell) {
+    public Optional<Cell> right(Cell cell) {
         if (cell.col() < width - 1) {
-            return cellAt(cell.row(), cell.col() + 1);
+            return Optional.of(cellAt(cell.row(), cell.col() + 1));
         }
-        return null;
+        return Optional.empty();
     }
 
-    public Cell up(Cell cell) {
+    public Optional<Cell> up(Cell cell) {
         if (cell.row() > 0) {
-            return cellAt(cell.row() - 1, cell.col());
+            return Optional.of(cellAt(cell.row() - 1, cell.col()));
         }
-        return null;
+        return Optional.empty();
     }
 
-    public Cell down(Cell cell) {
+    public Optional<Cell> down(Cell cell) {
         if (cell.row() < height - 1) {
-            return cellAt(cell.row() + 1, cell.col());
+            return Optional.of(cellAt(cell.row() + 1, cell.col()));
         }
-        return null;
+        return Optional.empty();
     }
 
     public List<Cell> getNeighbours(Cell cell) {

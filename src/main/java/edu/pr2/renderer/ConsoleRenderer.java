@@ -57,10 +57,10 @@ public class ConsoleRenderer implements Renderer {
         if (cell.type() != Cell.Type.WALL) {
             return EMPTY;
         }
-        var left = maze.left(cell);
-        var right = maze.right(cell);
-        var up = maze.up(cell);
-        var down = maze.down(cell);
+        var left = maze.left(cell).orElse(null);
+        var right = maze.right(cell).orElse(null);
+        var up = maze.up(cell).orElse(null);
+        var down = maze.down(cell).orElse(null);
         if (left != null && left.type() == Cell.Type.WALL
                 || right != null && right.type() == Cell.Type.WALL) {
             return WALL_HORIZONTAL;
