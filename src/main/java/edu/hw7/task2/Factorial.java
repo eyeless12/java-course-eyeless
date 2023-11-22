@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class Factorial {
     private Factorial() { }
+
     public static long getFactorial(long n) {
         if (n == 0) {
             return 1L;
@@ -19,9 +20,5 @@ public class Factorial {
             result.add(i);
         }
         return result;
-    }
-
-    public static void main(String[] args) {
-        System.out.println(Factorial.getFactorial(10));
     }
 }

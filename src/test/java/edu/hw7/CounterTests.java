@@ -10,12 +10,12 @@ public class CounterTests {
         var counter = new AtomicCounter();
         var thread1 = new Thread(() -> {
             for (var i = 0; i < 10; i++){
-                counter.Increment();
+                counter.increment();
             }
         });
         var thread2 = new Thread(() -> {
             for (var i = 0; i < 10; i++){
-                counter.Increment();
+                counter.increment();
             }
         });
         thread1.start();
@@ -31,22 +31,22 @@ public class CounterTests {
         var counter = new AtomicCounter();
         var thread1 = new Thread(() -> {
             for (var i = 0; i < 10; i++){
-                counter.Increment();
+                counter.increment();
             }
         });
         var thread2 = new Thread(() -> {
             for (var i = 0; i < 10; i++){
-                counter.Increment();
+                counter.increment();
             }
         });
         var thread3 = new Thread(() -> {
             for (var i = 0; i < 10; i++){
-                counter.Increment();
+                counter.increment();
             }
         });
         var thread4 = new Thread(() -> {
             for (var i = 0; i < 10; i++){
-                counter.Increment();
+                counter.increment();
             }
         });
         thread1.start();
@@ -66,42 +66,42 @@ public class CounterTests {
         var counter = new AtomicCounter();
         var thread1 = new Thread(() -> {
             for (var i = 0; i < 10; i++){
-                counter.Increment();
+                counter.increment();
             }
         });
         var thread2 = new Thread(() -> {
             for (var i = 0; i < 10; i++){
-                counter.Increment();
+                counter.increment();
             }
         });
         var thread3 = new Thread(() -> {
             for (var i = 0; i < 10; i++){
-                counter.Increment();
+                counter.increment();
             }
         });
         var thread4 = new Thread(() -> {
             for (var i = 0; i < 10; i++){
-                counter.Increment();
+                counter.increment();
             }
         });
         var thread5 = new Thread(() -> {
             for (var i = 0; i < 10; i++){
-                counter.Increment();
+                counter.increment();
             }
         });
         var thread6 = new Thread(() -> {
             for (var i = 0; i < 10; i++){
-                counter.Increment();
+                counter.increment();
             }
         });
         var thread7 = new Thread(() -> {
             for (var i = 0; i < 10; i++){
-                counter.Increment();
+                counter.increment();
             }
         });
         var thread8 = new Thread(() -> {
             for (var i = 0; i < 10; i++){
-                counter.Increment();
+                counter.increment();
             }
         });
         thread1.start();

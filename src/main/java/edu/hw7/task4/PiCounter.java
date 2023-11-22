@@ -7,6 +7,7 @@ public class PiCounter {
     private static final Double CIRCLE_X = 0.5;
     private static final Double CIRCLE_Y = 0.5;
     private static final Double CIRCLE_R = 1.0;
+    private static final int FOUR = 4;
 
     public double countPi(int randomPointsCount) {
         var random = new Random();
@@ -18,11 +19,11 @@ public class PiCounter {
                 circleCount++;
             }
         }
-        return 4 * (circleCount / (double)randomPointsCount);
+        return FOUR * (circleCount / (double) randomPointsCount);
     }
 
     public double countPiParallel(int randomPointsCount) {
-        return 4 * (getPointsInsideCircle(randomPointsCount) / (double) randomPointsCount);
+        return FOUR * (getPointsInsideCircle(randomPointsCount) / (double) randomPointsCount);
     }
 
     private double getPointsInsideCircle(int numPoints) {
@@ -38,10 +39,5 @@ public class PiCounter {
 
     private boolean isPointInCircle(double x, double y) {
         return x * x + y * y <= CIRCLE_R;
-    }
-
-    public static void main(String[] args) {
-        var counter = new PiCounter();
-        System.out.println(counter.countPiParallel(1000000));
     }
 }
