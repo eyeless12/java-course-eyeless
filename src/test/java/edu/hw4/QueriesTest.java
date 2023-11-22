@@ -310,7 +310,7 @@ public class QueriesTest {
         var aResult = result.get("A");
         var cdaResult = result.get("CDA");
         var abcdResult = result.get("ABCD");
-        assertThat(aResult).isEqualTo("height must be natural, weight must be natural");
+        assertThat(aResult).isEqualTo("weight must be natural, height must be natural");
         assertThat(cdaResult).isEqualTo("weight must be natural");
         assertThat(abcdResult).isEqualTo("height must be natural");
     }
