@@ -41,9 +41,9 @@ public class StatsCollectorTest {
                         14.026869308892874
                     }
                 ),
-                Map.of("Name 0", new Stat(5.314345649946708, 2.657172824973354, 1.4227862056379224, 3.8915594443087858),
-                    "Name 1", new Stat(95.33800893851993, 10.593112104279992, 1.5696040342882331, 16.28991711008446),
-                    "Name 2", new Stat(44.31830190568828, 8.863660381137656, 2.985494572780239, 14.026869308892874)
+                Map.of("Name 0", new Statistic(5.314345649946708, 2.657172824973354, 1.4227862056379224, 3.8915594443087858),
+                    "Name 1", new Statistic(95.33800893851993, 10.593112104279992, 1.5696040342882331, 16.28991711008446),
+                    "Name 2", new Statistic(44.31830190568828, 8.863660381137656, 2.985494572780239, 14.026869308892874)
                 )
             ));
     }
@@ -52,7 +52,7 @@ public class StatsCollectorTest {
     @MethodSource("getRandomArrays")
     @DisplayName("StatsCollector general test")
     @SneakyThrows
-    public void statsCollector_shouldProcessAllSentMetrics(List<double[]> values, Map<String, Stat> expected) {
+    public void statsCollector_shouldProcessAllSentMetrics(List<double[]> values, Map<String, Statistic> expected) {
         ExecutorService executorService = Executors.newFixedThreadPool(3);
         StatsCollector collector = new StatsCollector();
         for (int i = 0; i < 3; i++) {
