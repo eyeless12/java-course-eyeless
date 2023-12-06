@@ -19,7 +19,7 @@ public class StatsCollector {
     private final AtomicInteger metricsCounter = new AtomicInteger(0);
     private final ExecutorService executorService = Executors.newFixedThreadPool(NUMBER_OF_THREADS);
     @Getter
-    private final Map<String, Stat> stats = new ConcurrentHashMap<>();
+    private final Map<String, Statistic> stats = new ConcurrentHashMap<>();
     private final BlockingQueue<Metric> metricsToProcess = new LinkedBlockingQueue<>();
 
     public StatsCollector() {
@@ -52,13 +52,13 @@ public class StatsCollector {
     private void processMetrics() {
         while (!executorService.isShutdown()) {
             Metric currentMetric = metricsToProcess.take();
-            Stat stat = getStat(currentMetric.values());
+            Statistic stat = getStat(currentMetric.values());
             stats.put(currentMetric.name(), stat);
             metricsCounter.decrementAndGet();
         }
     }
 
-    private Stat getStat(double[] values) {
+    private Statistic getStat(double[] values) {
         double min = Double.MAX_VALUE;
         double max = Double.MIN_VALUE;
         double summ = 0;
@@ -67,6 +67,6 @@ public class StatsCollector {
             max = Math.max(max, value);
             summ += value;
         }
-        return new Stat(summ, summ / values.length, min, max);
+        return new Statistic(summ, summ / values.length, min, max);
     }
 }
