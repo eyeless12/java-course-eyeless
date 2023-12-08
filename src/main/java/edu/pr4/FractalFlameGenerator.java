@@ -1,17 +1,10 @@
 package edu.pr4;
 
-import edu.pr4.image_processor.GammaCorrectionImageProcessor;
 import edu.pr4.image_processor.ImageProcessor;
 import edu.pr4.model.FractalImage;
 import edu.pr4.model.ImageFormat;
 import edu.pr4.model.Rect;
-import edu.pr4.renderer.ParallelRenderer;
 import edu.pr4.renderer.Renderer;
-import edu.pr4.transformation.PowerTransformation;
-import edu.pr4.transformation.SinusTransformation;
-import edu.pr4.transformation.SphereTransformation;
-import edu.pr4.transformation.SwirlTransformation;
-import edu.pr4.transformation.TangentTransformation;
 import edu.pr4.transformation.Transformation;
 import edu.pr4.util.ImageUtils;
 import java.nio.file.Path;
@@ -45,22 +38,22 @@ public final class FractalFlameGenerator {
         processor.process(fractalImage);
         ImageUtils.save(fractalImage, path, format);
     }
-
-    public static void main(String[] args) {
-        FractalFlameGenerator generator = new FractalFlameGenerator(
-            1920,
-            1080,
-            new ParallelRenderer(),
-            new Rect(-4, -3, 8, 6),
-            List.of(
-                new PowerTransformation(),
-                new SinusTransformation(),
-                new SphereTransformation(),
-                new SwirlTransformation(),
-                new TangentTransformation()
-            ),
-            new GammaCorrectionImageProcessor()
-        );
-        generator.generate(1000, 1000, 2, Path.of("./img.png"), ImageFormat.PNG);
-    }
+//    //usage
+//    public static void main(String[] args) {
+//        FractalFlameGenerator generator = new FractalFlameGenerator(
+//            1920,
+//            1080,
+//            new ParallelRenderer(),
+//            new Rect(-8, -6, 16, 12),
+//            List.of(
+//                new PowerTransformation(),
+//                new SinusTransformation(),
+//                new SphereTransformation(),
+//                new SwirlTransformation(),
+//                new TangentTransformation()
+//            ),
+//            new GammaCorrectionImageProcessor()
+//        );
+//        generator.generate(1000, 1000, 2, Path.of("img.png"), ImageFormat.PNG);
+//    }
 }

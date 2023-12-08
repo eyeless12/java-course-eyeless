@@ -3,12 +3,12 @@ package edu.pr4.util;
 import edu.pr4.model.FractalImage;
 import edu.pr4.model.ImageFormat;
 import edu.pr4.model.Pixel;
-import lombok.SneakyThrows;
-import lombok.experimental.UtilityClass;
-import javax.imageio.ImageIO;
-import java.awt.*;
+import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.nio.file.Path;
+import javax.imageio.ImageIO;
+import lombok.SneakyThrows;
+import lombok.experimental.UtilityClass;
 
 @UtilityClass
 public class ImageUtils {
