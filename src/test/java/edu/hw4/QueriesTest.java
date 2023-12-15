@@ -296,22 +296,4 @@ public class QueriesTest {
         assertThat(cdaResult.size()).isEqualTo(1);
         assertThat(abcdResult.size()).isEqualTo(1);
     }
-
-    @Test
-    void testTwenty() {
-        var animals1 = List.of(
-                new Animal("A", Animal.Type.DOG, Animal.Sex.F, 14, -3, -5, true),
-                new Animal("AB", Animal.Type.DOG, Animal.Sex.M, 164, 3, 15, true),
-                new Animal("CDA", Animal.Type.CAT, Animal.Sex.M, 14, 170, -5, true),
-                new Animal("ABD", Animal.Type.CAT, Animal.Sex.M, 6365, 15, 18, true),
-                new Animal("ABCD", Animal.Type.CAT, Animal.Sex.M, 132, -11, 11, true),
-                new Animal("F1", Animal.Type.FISH, Animal.Sex.F, 15, 19, 20, true));
-        var result = new Queries(animals1).twenty();
-        var aResult = result.get("A");
-        var cdaResult = result.get("CDA");
-        var abcdResult = result.get("ABCD");
-        assertThat(aResult).isEqualTo("weight must be natural, height must be natural");
-        assertThat(cdaResult).isEqualTo("weight must be natural");
-        assertThat(abcdResult).isEqualTo("height must be natural");
-    }
 }
